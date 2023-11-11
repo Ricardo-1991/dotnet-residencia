@@ -1,0 +1,14 @@
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/bin/Debug/net7.0/MeuPrimeiroProjeto
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/bin/Debug/net7.0/MeuPrimeiroProjeto.deps.json
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/bin/Debug/net7.0/MeuPrimeiroProjeto.runtimeconfig.json
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/bin/Debug/net7.0/MeuPrimeiroProjeto.dll
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/bin/Debug/net7.0/MeuPrimeiroProjeto.pdb
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/MeuPrimeiroProjeto.GeneratedMSBuildEditorConfig.editorconfig
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/MeuPrimeiroProjeto.AssemblyInfoInputs.cache
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/MeuPrimeiroProjeto.AssemblyInfo.cs
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/MeuPrimeiroProjeto.csproj.CoreCompileInputs.cache
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/MeuPrimeiroProjeto.dll
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/refint/MeuPrimeiroProjeto.dll
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/MeuPrimeiroProjeto.pdb
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/MeuPrimeiroProjeto.genruntimeconfig.cache
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/ref/MeuPrimeiroProjeto.dll
