@@ -42,7 +42,7 @@
 
     int myInt2 = (int)myDouble;
 
-    Console.WriteLine("Após a conversão de double para inteiro usando conversão explícita por 'cast', o valor fracionário é truncado e arredondado para baixo: " + myInt2);
+    Console.WriteLine($"Após a conversão de double para inteiro usando conversão explícita por 'cast', o valor fracionário é truncado e arredondado para baixo: {myInt2}.");
 
 #endregion
 
@@ -57,3 +57,44 @@
 #endregion
 
 
+#region Questão 05 - Operadores de Comparação:
+    int a = 5, b = 8;
+
+    if(a > b)
+        Console.WriteLine($"{a} é maior do que {b}.");
+    else
+        Console.WriteLine($"{b} é maior do que {a}");
+
+#endregion
+
+
+#region Questão 06 - Operadores de Igualdade:
+
+    string str1 = "Hello", str2 = "World";
+
+    if(str1 == str2)
+        Console.WriteLine("As duas strings são iguais.");
+    else 
+        Console.WriteLine("As duas strings não são iguais.");
+#endregion
+
+
+#region Questão 07 - Operadores Lógicos:
+    bool condicao1 = true, condicao2 = false;
+
+    if(condicao1 && condicao2) 
+        Console.WriteLine("Ambas as condições são verdadeiras.");
+    else
+        Console.WriteLine("Ambas as condições não são verdadeiras");
+
+#endregion
+
+
+#region Questão 08 - Desafio de Mistura de Operadores:
+    int num1 = 7, num2 = 3, num3 = 10;
+
+    if(num1 > num2 && num3 == (num1 + num2))
+        Console.WriteLine($"{num1} é maior que {num2} e {num1} + {num2} é igual a {num3}.");
+    else 
+        Console.WriteLine("Condição falsa");
+#endregion
