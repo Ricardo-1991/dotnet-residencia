@@ -1,5 +1,5 @@
 ﻿ 
- static void addTask (List<(string? title, string? description, DateTime expirationDate, bool isComplete)> myToDoList){
+static void addTask (List<(string? title, string? description, DateTime expirationDate, bool isComplete)> myToDoList){
         Console.WriteLine("Digite um título para a sua tarefa:");
         string? newTitle = Console.ReadLine();
 
@@ -8,8 +8,8 @@
 
         Console.WriteLine("Digite uma data de encerramento da tarefa:(formato dd/mm/aaaa)");
         string? newDate = Console.ReadLine();
-
-        if (DateTime.TryParseExact(newDate, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime newExpirationDate)) {
+        string formatDate = "dd/MM/yyyy";
+        if (DateTime.TryParseExact(newDate, formatDate, null, System.Globalization.DateTimeStyles.None, out DateTime newExpirationDate)) {
             myToDoList.Add((newTitle, newDescription, newExpirationDate, false));
             Console.WriteLine("Tarefa adicionada com sucesso!");
             Console.WriteLine();
@@ -17,14 +17,39 @@
             Console.WriteLine("Formato de data inválido. Certifique-se de usar o formato dd/MM/yyyy.");
             Console.WriteLine();
         }
- }
+}
 
- static void printAllTasks(List<(string? title, string? description, DateTime expirationDate, bool isComplete)> myToDoList){
-    for(int i = 0; i < myToDoList.Count; i++){
-        Console.WriteLine($"Título: {myToDoList[i].title}\nDescrição: {myToDoList[i].description}\nData de encerramento: {myToDoList[i].expirationDate}\nStatus: {(myToDoList[i].isComplete ? "Completada" : "Incompleta")}\n");
+static void eraseTask(List<(string? title, string? description, DateTime expirationDate, bool isComplete)> myToDoList){
+    printAllTasks(myToDoList);
+
+    Console.WriteLine();
+    Console.WriteLine($"Qual tarefa deseja excluir? Escolha pelos índices");
+    string? userInput = Console.ReadLine();
+    int.TryParse(userInput, out int option);
+    bool isFind = false;
+    for(int i = 1; i <= myToDoList.Count; i++){
+        if(i == option){
+            myToDoList.RemoveAt(i);
+            Console.WriteLine("Tarefa removida com sucesso!");
+            isFind = true;
+            break;
+        }
     }
- }
 
+    if(!isFind){
+        Console.WriteLine("Não há tarefa com o índice informado.");
+    }
+
+}
+
+static void printAllTasks(List<(string? title, string? description, DateTime expirationDate, bool isComplete)> myToDoList){
+    int id = 1;
+    foreach(var task in myToDoList){
+        Console.WriteLine($"ID: {id}\nTítulo: {task.title}\nDescrição: {task.description}\nData de encerramento: {task.expirationDate}\nStatus: {(task.isComplete ? "Completada" : "Incompleta")}\n");
+        Console.WriteLine("------------------------------");
+        id++;
+    }
+}
 
 List<(string? title, string? description, DateTime expirationDate, bool isComplete)> myToDoList = new List<(string?, string?, DateTime, bool)>{};
 
@@ -56,7 +81,7 @@ do
         addTask(myToDoList);
         break;
     case 2:
-  
+        eraseTask(myToDoList);
         break;
 
     case 3:

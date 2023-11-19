@@ -1,8 +1,8 @@
  ## Lista de tarefa = título + descrição + data de vencimento
--
+- Feito
 
  ## Deverá Listar todas as tarefas
- -
+ - Feito
 
  ## Marcar como concluída
  -
