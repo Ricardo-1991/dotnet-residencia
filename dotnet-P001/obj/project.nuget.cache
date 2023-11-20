@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/MtioVMNiVamGMLvvfmZaIEOhvsUnWMAp8JMfkMi59/vwRE3YchiVyXAS+TfQC11rO9r/PwkdZebtQrkmAPo2w==",
+  "dgSpecHash": "LDiXH+XF4mcrh1QYyd/NqGhA/YwAPgXFD5S05gt4EE2co4WFHn2/LNjAfoxCQ3L6CcFq3ky3spjp4XbHkpTNSA==",
   "success": true,
-  "projectFilePath": "/home/ricardo/Documentos/dotnet-residencia/.NET-P002/.NET-P002.csproj",
+  "projectFilePath": "/home/ricardo/Documentos/dotnet-residencia/dotnet-P001/.NET-P001.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
