@@ -8,7 +8,7 @@
  - Feito
  
  ## Lista de tarefas pendentes (não concluídas) e as tarefas concluídas
- -  
+ - Feito 
 
  ## Excluir tarefas
  - Feito

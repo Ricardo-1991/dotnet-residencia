@@ -1,6 +1,6 @@
 ﻿
 public class Task {
-     private string? _title;
+    private string? _title;
     public string? Title {
         get { return _title; }
         set { _title = value; }
@@ -33,36 +33,49 @@ public class Task {
  };
 
  public class MyToDoList {
-    List<Task> tasks = new List<Task>();
+List<Task> tasks = new List<Task>();
 
-    public void addTask (){
-        Task newTask = new Task();
-        Console.WriteLine("Digite um título para a sua tarefa:");
-        newTask.Title = Console.ReadLine();
+public bool isEmptyList() {
+    if(tasks.Count == 0) {
+        Console.WriteLine("Não há tarefas cadastradas para listar.");
+        Console.WriteLine();
+        return true;
+    } else {
+        return false;
+    }
+}
+public void addTask (){
+    Task newTask = new Task();
+    Console.WriteLine("Digite um título para a sua tarefa:");
+    newTask.Title = Console.ReadLine();
 
-        Console.WriteLine("Digite uma descrição para a sua tarefa:");
-        newTask.Description = Console.ReadLine();
+    Console.WriteLine("Digite uma descrição para a sua tarefa:");
+    newTask.Description = Console.ReadLine();
 
-        Console.WriteLine("Digite uma data de encerramento da tarefa:(formato dd/mm/aaaa)");
-        string? newDate = Console.ReadLine();
-        string formatDate = "dd/MM/yyyy";
-        if (DateTime.TryParseExact(newDate, formatDate, null, System.Globalization.DateTimeStyles.None, out DateTime newExpirationDate)) {
-            if(tasks.Count > 0) {
-            newTask.Id = tasks[tasks.Count - 1].Id + 1;
-            } else {
-                newTask.Id = 1;
-            }
-            newTask.ExpirationDate = newExpirationDate;
-            tasks.Add(newTask);
-            Console.WriteLine("Tarefa adicionada com sucesso!");
-            Console.WriteLine();
+    Console.WriteLine("Digite uma data de encerramento da tarefa:(formato dd/mm/aaaa)");
+    string? newDate = Console.ReadLine();
+    string formatDate = "dd/MM/yyyy";
+    if (DateTime.TryParseExact(newDate, formatDate, null, System.Globalization.DateTimeStyles.None, out DateTime newExpirationDate)) {
+        if(tasks.Count > 0) {
+        newTask.Id = tasks[tasks.Count - 1].Id + 1;
         } else {
-            Console.WriteLine("Formato de data inválido. Certifique-se de usar o formato dd/MM/yyyy.");
-            Console.WriteLine();
+            newTask.Id = 1;
         }
+        newTask.ExpirationDate = newExpirationDate;
+        tasks.Add(newTask);
+        Console.WriteLine("Tarefa adicionada com sucesso!");
+        Console.WriteLine();
+    } else {
+        Console.WriteLine("Formato de data inválido. Certifique-se de usar o formato dd/MM/yyyy.");
+        Console.WriteLine();
+    }
 }
 
 public void eraseTask(){
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
     printAllTasks();
 
     Console.WriteLine();
@@ -91,17 +104,25 @@ public void eraseTask(){
 }
 
 public void markTaskCompleted() {
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
+
     printAllTasks();
     Console.WriteLine();
     Console.WriteLine(
         "Selecione uma tarefa para marcar como completada escolhendo pelos índices ou digite 0 para retornar ao menu: "
     );
+
     string? userInput = Console.ReadLine();
     if(userInput == "0"){
         return;
     }
+
     int.TryParse(userInput, out int option);
     bool isFind = false;
+
     for(int i = 0; i < tasks.Count; i++){
         if(tasks[i].Id == option){
             tasks[i].IsComplete = true;
@@ -119,16 +140,45 @@ public void markTaskCompleted() {
 
 }
 
-public void printAllTasks(){
-    if(tasks.Count == 0){
-        Console.WriteLine("Não há tarefa cadastrada para listar.");
-        Console.WriteLine();
+public void completedTasks() {
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
         return;
     }
-    foreach(var task in tasks){
-        Console.WriteLine($"ID: {task.Id}\nTítulo: {formatString(task.Title)}\nDescrição: {formatString(task.Description)}\nData de encerramento: {task.ExpirationDate}\nStatus: {(task.IsComplete ? "Completa ✅" : "Incompleta ❌")}\n");
-        Console.WriteLine("------------------------------");
+    Console.WriteLine("Lista de tarefas concluídas: ");
+    Console.WriteLine("-----------------------------");
+    foreach(var task in tasks) {
+        if(task.IsComplete) {
+            Console.WriteLine($"ID: {task.Id}\nTítulo: {formatString(task.Title)}\nDescrição: {formatString(task.Description)}\nData de encerramento: {task.ExpirationDate}\nStatus: Completa ✅\n");
+        }
     }
+}
+
+public void incompletedTasks() {
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
+    Console.WriteLine("Lista de tarefas não concluídas: ");
+    Console.WriteLine("-----------------------------");
+    foreach(var task in tasks) {
+        if(!task.IsComplete) {
+            Console.WriteLine($"ID: {task.Id}\nTítulo: {formatString(task.Title)}\nDescrição: {formatString(task.Description)}\nData de encerramento: {task.ExpirationDate}\nStatus: Completa ❌.\n");
+        }
+    }
+}
+
+
+public void printAllTasks(){
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
+    
+    foreach(var task in tasks){
+        Console.WriteLine($"ID: {task.Id}\nTítulo: {formatString(task.Title)}\nDescrição: {formatString(task.Description)}\nData de encerramento: {task.ExpirationDate}\nStatus: {(task.IsComplete ? "Completa ✅" : "Incompleta ❌")}.\n");
+        Console.WriteLine("------------------------------");
+    }   
 }
 
 public string formatString(string? input){
@@ -183,11 +233,11 @@ class Program {
             break;
 
         case 5:
-    
+            tasks.completedTasks();
             break;
 
         case 6:
-    
+            tasks.incompletedTasks();
             break;
 
         case 7:
