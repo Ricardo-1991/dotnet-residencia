@@ -5,13 +5,13 @@
  - Feito
 
  ## Marcar como concluída
- -
+ - Feito
  
  ## Lista de tarefas pendentes (não concluídas) e as tarefas concluídas
- -
+ -  
 
  ## Excluir tarefas
- -
+ - Feito
 
  ## Encontrar tarefas com base em palavras chaves
  -
