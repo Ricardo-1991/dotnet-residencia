@@ -112,7 +112,7 @@ public void markTaskCompleted() {
     printAllTasks();
     Console.WriteLine();
     Console.WriteLine(
-        "Selecione uma tarefa para marcar como completada escolhendo pelos índices ou digite 0 para retornar ao menu: "
+        "Selecione uma tarefa para marcar como concluída escolhendo pelos índices ou digite 0 para retornar ao menu: "
     );
 
     string? userInput = Console.ReadLine();
@@ -126,7 +126,7 @@ public void markTaskCompleted() {
     for(int i = 0; i < tasks.Count; i++){
         if(tasks[i].Id == option){
             tasks[i].IsComplete = true;
-            Console.WriteLine($"Tarefa {tasks[i].Title} completa! ");
+            Console.WriteLine($"Tarefa {tasks[i].Title} conluída! ");
             Console.WriteLine();
             isFind = true;
             break;
@@ -349,7 +349,7 @@ class Program {
             break;
 
         case 9:
-    
+            Console.WriteLine("Programa finalizado.");
             break;
     
         default:
