@@ -32,7 +32,7 @@ public class Task {
     }
  };
 
- public class MyToDoList {
+public class MyToDoList {
 List<Task> tasks = new List<Task>();
 
 public bool isEmptyList() {
@@ -149,10 +149,17 @@ public void completedTasks() {
     Console.WriteLine("-----------------------------");
     foreach(var task in tasks) {
         if(task.IsComplete) {
-            Console.WriteLine($"ID: {task.Id}\nTítulo: {formatString(task.Title)}\nDescrição: {formatString(task.Description)}\nData de encerramento: {task.ExpirationDate}\nStatus: Completa ✅\n");
+             string output = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                task.Id,
+                formatString(task.Title),
+                formatString(task.Description),
+                task.ExpirationDate.ToShortDateString(),
+                "Pendente ✅.\n"
+            );
+            Console.WriteLine(output);
         }
     }
-}
+}   
 
 public void incompletedTasks() {
     bool isEmpty = isEmptyList();
@@ -163,11 +170,98 @@ public void incompletedTasks() {
     Console.WriteLine("-----------------------------");
     foreach(var task in tasks) {
         if(!task.IsComplete) {
-            Console.WriteLine($"ID: {task.Id}\nTítulo: {formatString(task.Title)}\nDescrição: {formatString(task.Description)}\nData de encerramento: {task.ExpirationDate}\nStatus: Completa ❌.\n");
+            string output = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                task.Id,
+                formatString(task.Title),
+                formatString(task.Description),
+                task.ExpirationDate.ToShortDateString(),
+                "Pendente ❌.\n"
+            );
+            Console.WriteLine(output);
         }
     }
 }
 
+public void findTaskWithKeyWord() {
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
+    Console.WriteLine("Digite palavra chave para encontrar tarefas: ");
+    string? userInput = Console.ReadLine();
+    Console.WriteLine("Lista de tarefas encontradas: ");
+    Console.WriteLine("-----------------------------");
+    foreach(var task in tasks) {
+        if(task.Title != null && userInput != null){
+            if(task.Title.Contains(userInput, StringComparison.OrdinalIgnoreCase)) {
+                string output = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                               task.Id,
+                               formatString(task.Title),
+                               formatString(task.Description),
+                               task.ExpirationDate.ToShortDateString(),
+                               task.IsComplete ? "Concluída ✅" : "Pendente ❌");
+                Console.WriteLine(output);
+            }
+        }   
+    }
+}
+
+public void generalStatistics() {
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
+    int amountCompletedTasks = 0;
+    int amountIncompletedTasks = 0;
+    DateTime mostRecentDate = DateTime.MaxValue;
+    DateTime oldestDate = DateTime.MinValue;
+    int indexMax = 0;
+    int indexMin = 0;
+    for(int i = 0; i < tasks.Count; i++ ) {
+        if(tasks[i].IsComplete) {
+            amountCompletedTasks++;
+        }else if(!tasks[i].IsComplete){
+            amountIncompletedTasks++;
+        }
+
+        if(tasks[i].ExpirationDate < mostRecentDate){
+            mostRecentDate = tasks[i].ExpirationDate;
+            indexMin = i;
+        }
+
+        if(tasks[i].ExpirationDate > oldestDate){
+            oldestDate = tasks[i].ExpirationDate;
+            indexMax = i;
+        }
+    }
+
+    Console.WriteLine("Dados estatísticos");
+    Console.WriteLine("------------------");
+    Console.WriteLine($"Quantidade de tarefas concluídas: {amountCompletedTasks}");
+    Console.WriteLine($"Quantidade de tarefas pendentes: {amountIncompletedTasks}");
+    Console.WriteLine();
+    Console.WriteLine("Data da tarefa mais recente: ");
+    string mostRecentDateOutput = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                               tasks[indexMax].Id,
+                               formatString(tasks[indexMax].Title),
+                               formatString(tasks[indexMax].Description),
+                               tasks[indexMax].ExpirationDate.ToShortDateString(),
+                               tasks[indexMax].IsComplete ? "Concluída ✅" : "Pendente ❌");
+    Console.WriteLine(mostRecentDateOutput);
+    
+    Console.WriteLine();
+
+    Console.WriteLine("Data da tarefa mais antiga: ");
+    string OldestDateoutput = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                               tasks[indexMin].Id,
+                               formatString(tasks[indexMin].Title),
+                               formatString(tasks[indexMin].Description),
+                               tasks[indexMin].ExpirationDate.ToShortDateString(),
+                               tasks[indexMin].IsComplete ? "Concluída ✅" : "Pendente ❌");
+    Console.WriteLine(OldestDateoutput);
+    
+
+}
 
 public void printAllTasks(){
     bool isEmpty = isEmptyList();
@@ -176,7 +270,13 @@ public void printAllTasks(){
     }
     
     foreach(var task in tasks){
-        Console.WriteLine($"ID: {task.Id}\nTítulo: {formatString(task.Title)}\nDescrição: {formatString(task.Description)}\nData de encerramento: {task.ExpirationDate}\nStatus: {(task.IsComplete ? "Completa ✅" : "Incompleta ❌")}.\n");
+        string output = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                               task.Id,
+                               formatString(task.Title),
+                               formatString(task.Description),
+                               task.ExpirationDate.ToShortDateString(),
+                               task.IsComplete ? "Concluída ✅" : "Pendente ❌");
+                Console.WriteLine(output);
         Console.WriteLine("------------------------------");
     }   
 }
@@ -241,11 +341,11 @@ class Program {
             break;
 
         case 7:
-    
+            tasks.findTaskWithKeyWord();
             break;
 
         case 8:
-    
+            tasks.generalStatistics();
             break;
 
         case 9:

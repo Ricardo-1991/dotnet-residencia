@@ -14,8 +14,8 @@
  - Feito
 
  ## Encontrar tarefas com base em palavras chaves
- -
+ - feito
 
  ## Estatística: qtd de tarefas concluídas e pendentes. A tarefa mais antiga e a tarefa mais recente
-
+    
  -
