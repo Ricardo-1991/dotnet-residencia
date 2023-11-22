@@ -12,3 +12,4 @@
 /home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/MeuPrimeiroProjeto.pdb
 /home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/MeuPrimeiroProjeto.genruntimeconfig.cache
 /home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/ref/MeuPrimeiroProjeto.dll
+/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/Debug/net7.0/MeuPrimeiroProjeto.sourcelink.json

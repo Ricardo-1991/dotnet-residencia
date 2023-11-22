@@ -1,6 +1,6 @@
 ﻿
 public class Task {
-     private string? _title;
+    private string? _title;
     public string? Title {
         get { return _title; }
         set { _title = value; }
@@ -23,13 +23,28 @@ public class Task {
         get { return _isComplete; }
         set { _isComplete = value; }
     }
+
+    private int _id;
+
+    public int Id {
+        get { return _id; }
+        set { _id = value; }
+    }
  };
 
+public class MyToDoList {
+List<Task> tasks = new List<Task>();
 
- public class MyToDoList {
-    List<Task> tasks = new List<Task>();
-
-    public void addTask (){
+public bool isEmptyList() {
+    if(tasks.Count == 0) {
+        Console.WriteLine("Não há tarefas cadastradas para listar.");
+        Console.WriteLine();
+        return true;
+    } else {
+        return false;
+    }
+}
+public void addTask (){
     Task newTask = new Task();
     Console.WriteLine("Digite um título para a sua tarefa:");
     newTask.Title = Console.ReadLine();
@@ -41,6 +56,11 @@ public class Task {
     string? newDate = Console.ReadLine();
     string formatDate = "dd/MM/yyyy";
     if (DateTime.TryParseExact(newDate, formatDate, null, System.Globalization.DateTimeStyles.None, out DateTime newExpirationDate)) {
+        if(tasks.Count > 0) {
+        newTask.Id = tasks[tasks.Count - 1].Id + 1;
+        } else {
+            newTask.Id = 1;
+        }
         newTask.ExpirationDate = newExpirationDate;
         tasks.Add(newTask);
         Console.WriteLine("Tarefa adicionada com sucesso!");
@@ -52,17 +72,25 @@ public class Task {
 }
 
 public void eraseTask(){
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
     printAllTasks();
 
     Console.WriteLine();
-    Console.WriteLine($"Qual tarefa deseja excluir? Escolha pelos índices");
+    Console.WriteLine($"Qual tarefa deseja excluir? Escolha pelos índices ou digite '0' para retornar ao menu: ");
     string? userInput = Console.ReadLine();
+    if(userInput == "0"){
+        return;
+    }
     int.TryParse(userInput, out int option);
     bool isFind = false;
-    for(int i = 1; i <= tasks.Count; i++){
-        if(i == option){
+    for(int i = 0; i < tasks.Count; i++){
+        if(tasks[i].Id == option){
             tasks.RemoveAt(i);
             Console.WriteLine("Tarefa removida com sucesso!");
+            Console.WriteLine();
             isFind = true;
             break;
         }
@@ -70,17 +98,194 @@ public void eraseTask(){
 
     if(!isFind){
         Console.WriteLine("Não há tarefa com o índice informado.");
+        Console.WriteLine();
     }
 
 }
 
-public void printAllTasks(){
-    int id = 1;
-    foreach(var task in tasks){
-        Console.WriteLine($"ID: {id}\nTítulo: {task.Title}\nDescrição: {task.Description}\nData de encerramento: {task.ExpirationDate}\nStatus: {(task.IsComplete ? "Completada" : "Incompleta")}\n");
-        Console.WriteLine("------------------------------");
-        id++;
+public void markTaskCompleted() {
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
     }
+
+    printAllTasks();
+    Console.WriteLine();
+    Console.WriteLine(
+        "Selecione uma tarefa para marcar como completada escolhendo pelos índices ou digite 0 para retornar ao menu: "
+    );
+
+    string? userInput = Console.ReadLine();
+    if(userInput == "0"){
+        return;
+    }
+
+    int.TryParse(userInput, out int option);
+    bool isFind = false;
+
+    for(int i = 0; i < tasks.Count; i++){
+        if(tasks[i].Id == option){
+            tasks[i].IsComplete = true;
+            Console.WriteLine($"Tarefa {tasks[i].Title} completa! ");
+            Console.WriteLine();
+            isFind = true;
+            break;
+        }
+    }
+
+    if(!isFind){
+        Console.WriteLine("Não há tarefa com o índice informado.");
+        Console.WriteLine();
+    }
+
+}
+
+public void completedTasks() {
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
+    Console.WriteLine("Lista de tarefas concluídas: ");
+    Console.WriteLine("-----------------------------");
+    foreach(var task in tasks) {
+        if(task.IsComplete) {
+             string output = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                task.Id,
+                formatString(task.Title),
+                formatString(task.Description),
+                task.ExpirationDate.ToShortDateString(),
+                "Pendente ✅.\n"
+            );
+            Console.WriteLine(output);
+        }
+    }
+}   
+
+public void incompletedTasks() {
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
+    Console.WriteLine("Lista de tarefas não concluídas: ");
+    Console.WriteLine("-----------------------------");
+    foreach(var task in tasks) {
+        if(!task.IsComplete) {
+            string output = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                task.Id,
+                formatString(task.Title),
+                formatString(task.Description),
+                task.ExpirationDate.ToShortDateString(),
+                "Pendente ❌.\n"
+            );
+            Console.WriteLine(output);
+        }
+    }
+}
+
+public void findTaskWithKeyWord() {
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
+    Console.WriteLine("Digite palavra chave para encontrar tarefas: ");
+    string? userInput = Console.ReadLine();
+    Console.WriteLine("Lista de tarefas encontradas: ");
+    Console.WriteLine("-----------------------------");
+    foreach(var task in tasks) {
+        if(task.Title != null && userInput != null){
+            if(task.Title.Contains(userInput, StringComparison.OrdinalIgnoreCase)) {
+                string output = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                               task.Id,
+                               formatString(task.Title),
+                               formatString(task.Description),
+                               task.ExpirationDate.ToShortDateString(),
+                               task.IsComplete ? "Concluída ✅" : "Pendente ❌");
+                Console.WriteLine(output);
+            }
+        }   
+    }
+}
+
+public void generalStatistics() {
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
+    int amountCompletedTasks = 0;
+    int amountIncompletedTasks = 0;
+    DateTime mostRecentDate = DateTime.MaxValue;
+    DateTime oldestDate = DateTime.MinValue;
+    int indexMax = 0;
+    int indexMin = 0;
+    for(int i = 0; i < tasks.Count; i++ ) {
+        if(tasks[i].IsComplete) {
+            amountCompletedTasks++;
+        }else if(!tasks[i].IsComplete){
+            amountIncompletedTasks++;
+        }
+
+        if(tasks[i].ExpirationDate < mostRecentDate){
+            mostRecentDate = tasks[i].ExpirationDate;
+            indexMin = i;
+        }
+
+        if(tasks[i].ExpirationDate > oldestDate){
+            oldestDate = tasks[i].ExpirationDate;
+            indexMax = i;
+        }
+    }
+
+    Console.WriteLine("Dados estatísticos");
+    Console.WriteLine("------------------");
+    Console.WriteLine($"Quantidade de tarefas concluídas: {amountCompletedTasks}");
+    Console.WriteLine($"Quantidade de tarefas pendentes: {amountIncompletedTasks}");
+    Console.WriteLine();
+    Console.WriteLine("Data da tarefa mais recente: ");
+    string mostRecentDateOutput = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                               tasks[indexMax].Id,
+                               formatString(tasks[indexMax].Title),
+                               formatString(tasks[indexMax].Description),
+                               tasks[indexMax].ExpirationDate.ToShortDateString(),
+                               tasks[indexMax].IsComplete ? "Concluída ✅" : "Pendente ❌");
+    Console.WriteLine(mostRecentDateOutput);
+    
+    Console.WriteLine();
+
+    Console.WriteLine("Data da tarefa mais antiga: ");
+    string OldestDateoutput = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                               tasks[indexMin].Id,
+                               formatString(tasks[indexMin].Title),
+                               formatString(tasks[indexMin].Description),
+                               tasks[indexMin].ExpirationDate.ToShortDateString(),
+                               tasks[indexMin].IsComplete ? "Concluída ✅" : "Pendente ❌");
+    Console.WriteLine(OldestDateoutput);
+    
+
+}
+
+public void printAllTasks(){
+    bool isEmpty = isEmptyList();
+    if(isEmpty) {
+        return;
+    }
+    
+    foreach(var task in tasks){
+        string output = String.Format("ID: {0}\nTítulo: {1}\nDescrição: {2}\nData de encerramento: {3}\nStatus: {4}\n",
+                               task.Id,
+                               formatString(task.Title),
+                               formatString(task.Description),
+                               task.ExpirationDate.ToShortDateString(),
+                               task.IsComplete ? "Concluída ✅" : "Pendente ❌");
+                Console.WriteLine(output);
+        Console.WriteLine("------------------------------");
+    }   
+}
+
+public string formatString(string? input){
+    if (!string.IsNullOrEmpty(input) && input[input.Length - 1] != '.') {
+        input += '.';
+    }
+    return (input ?? string.Empty);
 }
 
 }
@@ -120,7 +325,7 @@ class Program {
             break;
 
         case 3:
-    
+            tasks.markTaskCompleted();
             break;
 
         case 4:
@@ -128,19 +333,19 @@ class Program {
             break;
 
         case 5:
-    
+            tasks.completedTasks();
             break;
 
         case 6:
-    
+            tasks.incompletedTasks();
             break;
 
         case 7:
-    
+            tasks.findTaskWithKeyWord();
             break;
 
         case 8:
-    
+            tasks.generalStatistics();
             break;
 
         case 9:
