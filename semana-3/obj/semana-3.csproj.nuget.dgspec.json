@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/MeuPrimeiroProjeto.csproj": {}
+    "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/semana-3.csproj": {}
   },
   "projects": {
-    "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/MeuPrimeiroProjeto.csproj": {
+    "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/semana-3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/MeuPrimeiroProjeto.csproj",
-        "projectName": "MeuPrimeiroProjeto",
-        "projectPath": "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/MeuPrimeiroProjeto.csproj",
+        "projectUniqueName": "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/semana-3.csproj",
+        "projectName": "semana-3",
+        "projectPath": "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/semana-3.csproj",
         "packagesPath": "/home/paulo-ricardo-nascimento/.nuget/packages/",
-        "outputPath": "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/obj/",
+        "outputPath": "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/paulo-ricardo-nascimento/.nuget/NuGet/NuGet.Config"

@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2uC7unx2yvKQDsr6b7RyVj2esF+3AHTgPb7uaBODW7KXHX/ViqOfvSV6AwZl/ko+GPcB9kHNwntnK3EwGYBUyw==",
+  "dgSpecHash": "TOtdEm86kyx0P+Dyu55n0oLwDhuGXQnGC63u76P+VIPY9REKOrptsVIWoMCjsBreyPYLKC8Si7jkueI63ojAcA==",
   "success": true,
-  "projectFilePath": "/home/ricardo/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/MeuPrimeiroProjeto.csproj",
-  "expectedPackageFiles": [
-    "/home/ricardo/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
-    "/home/ricardo/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
-    "/home/ricardo/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.14/microsoft.netcore.app.host.linux-x64.7.0.14.nupkg.sha512"
-  ],
+  "projectFilePath": "/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-1/MeuPrimeiroProjeto/MeuPrimeiroProjeto.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

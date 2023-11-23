@@ -1,0 +1,15 @@
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/Debug/net7.0/semana-3.csproj.AssemblyReference.cache
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/Debug/net7.0/semana-3.GeneratedMSBuildEditorConfig.editorconfig
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/Debug/net7.0/semana-3.AssemblyInfoInputs.cache
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/Debug/net7.0/semana-3.AssemblyInfo.cs
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/Debug/net7.0/semana-3.csproj.CoreCompileInputs.cache
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/bin/Debug/net7.0/semana-3
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/bin/Debug/net7.0/semana-3.deps.json
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/bin/Debug/net7.0/semana-3.runtimeconfig.json
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/bin/Debug/net7.0/semana-3.dll
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/bin/Debug/net7.0/semana-3.pdb
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/Debug/net7.0/semana-3.dll
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/Debug/net7.0/refint/semana-3.dll
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/Debug/net7.0/semana-3.pdb
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/Debug/net7.0/semana-3.genruntimeconfig.cache
+/home/paulo-ricardo-nascimento/Documentos/dotnet-residencia/semana-3/obj/Debug/net7.0/ref/semana-3.dll
