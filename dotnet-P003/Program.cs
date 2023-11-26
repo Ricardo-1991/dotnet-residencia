@@ -1,10 +1,11 @@
 ﻿using System;
-
-namespace MeuPrimeiroProjeto 
+using ProductManager = ProductManagerNamespace.ProductManager;
+namespace Program 
 {
     class Program {
         static void Main(string[] args)
         {
+           ProductManager productManager = new ProductManager();
            string? option;
         
            do { 
@@ -21,10 +22,10 @@ namespace MeuPrimeiroProjeto
                 switch (option)
                 {
                     case "1":
-                  
+                        productManager.AddProduct();
                         break;
                     case "2":
-                  
+                        productManager.consultProductByCode();
                         break;
                     default:
                         Console.WriteLine("Opção inválida.");
