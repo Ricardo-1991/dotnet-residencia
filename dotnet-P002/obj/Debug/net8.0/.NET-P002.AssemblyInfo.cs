@@ -13,15 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute(".NET-P002")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4dec07ec3e047e53263d7022de8842f20eb5fe7")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea60e479f9ed2020149730340c4342d5572950ef")]
->>>>>>> atividade-p002
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7cd0126569cd50ec696804b0d9622da3056672f")]
->>>>>>> atividade-p002
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17b684d0e848d5406acbad38b9f4e9610fd3df8f")]
 [assembly: System.Reflection.AssemblyProductAttribute(".NET-P002")]
 [assembly: System.Reflection.AssemblyTitleAttribute(".NET-P002")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
