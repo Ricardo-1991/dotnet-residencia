@@ -1,0 +1,15 @@
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/bin/Debug/net8.0/dotnet-P003
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/bin/Debug/net8.0/dotnet-P003.deps.json
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/bin/Debug/net8.0/dotnet-P003.runtimeconfig.json
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/bin/Debug/net8.0/dotnet-P003.dll
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/bin/Debug/net8.0/dotnet-P003.pdb
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/obj/Debug/net8.0/dotnet-P003.GeneratedMSBuildEditorConfig.editorconfig
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/obj/Debug/net8.0/dotnet-P003.AssemblyInfoInputs.cache
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/obj/Debug/net8.0/dotnet-P003.AssemblyInfo.cs
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/obj/Debug/net8.0/dotnet-P003.csproj.CoreCompileInputs.cache
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/obj/Debug/net8.0/dotnet-P003.sourcelink.json
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/obj/Debug/net8.0/dotnet-P003.dll
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/obj/Debug/net8.0/refint/dotnet-P003.dll
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/obj/Debug/net8.0/dotnet-P003.pdb
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/obj/Debug/net8.0/dotnet-P003.genruntimeconfig.cache
+/home/ricardo/Documentos/dotnet-residencia/dotnet-P003/obj/Debug/net8.0/ref/dotnet-P003.dll
