@@ -11,10 +11,11 @@ namespace Program
            do { 
                 Console.WriteLine("Gerenciamento de Estoque de Produtos");
                 Console.WriteLine("-------------------------------------");
-                Console.WriteLine("1 - Cadastrar um novo Produto");
+                Console.WriteLine("1 - Cadastrar um novo produto");
                 Console.WriteLine("2 - Consultar um produto");
-                Console.WriteLine("3 - Atualizar quantidade do produto");
-                Console.WriteLine("4 - Gerar relatórios");
+                Console.WriteLine("3 - Atualizar produto: Aumentar quantidade no estoque.");
+                Console.WriteLine("4 - Atualizar produto: Diminuir quantidade no estoque.");
+                Console.WriteLine("5 - Gerar relatórios");
         
                 Console.WriteLine("Escolha uma opção:");
                 option = Console.ReadLine();
@@ -26,6 +27,16 @@ namespace Program
                         break;
                     case "2":
                         productManager.consultProductByCode();
+                        break;
+                    case "3":
+                        productManager.addProductAmount();
+                        break;
+                    case "4":
+                        
+                        break;
+
+                    case "5":
+                        
                         break;
                     default:
                         Console.WriteLine("Opção inválida.");

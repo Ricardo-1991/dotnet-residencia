@@ -8,66 +8,120 @@ namespace ProductManagerNamespace
     public class ProductManager
     {
         public List<(int? code, string? name, int? amount, float? price )> productList = new();
-
         public void AddProduct(){
-            try {
-                float? productPrice = 0;
-                int? productAmount = 0, productCode = null;
-                
-                Console.WriteLine("Digite o nome do produto");
+            try
+            {
+                Console.WriteLine("Digite o nome do produto:");
                 string? productName = Console.ReadLine();
 
-                Console.WriteLine("O preço unitário do produto:");
-                string? inputProductFloat = Console.ReadLine();
+                float productPrice = GetValidatedFloatInput("Digite o preço unitário do produto:");
 
-                if(float.TryParse(inputProductFloat, out float price)){
-                    productPrice = price;
-                } else {
-                    throw new Exception("Entrada inválida para preço. Deve ser um número válido.");
-                }
+                int productAmount = GetValidatedIntInput("Digite a quantidade do produto:");
 
-                Console.WriteLine("Quantidade do produto:");
-                string? inputProductAmount = Console.ReadLine();
+                int productCode = GetValidatedIntInput("Digite o código do produto:");
 
-                if(int.TryParse(inputProductAmount, out int amount)){
-                    productAmount = amount;
-                } else {
-                    throw new Exception("Entrada inválida para quantidade do produto. Deve ser um número válido.");
-                }
+                if (ProductCodeExists(productCode))
+                {
+                    Console.WriteLine("Já há um produto cadastrado com o mesmo código na base de dados.");
+                    Console.WriteLine("Deseja cadastrar um outro código? (s/n)");
 
-                Console.WriteLine("Código do produto:");
-                string? inputProductCode = Console.ReadLine();
+                    string? option = Console.ReadLine();
 
-                if(int.TryParse(inputProductCode, out int code)){
-                    productCode = code;
-                } else {
-                    throw new Exception("Entrada inválida para o código do produto. Deve ser uma entrada válida.");
+                    if (option == "s")
+                    {
+                        productCode = GetValidatedIntInput("Digite o novo código:");
+                    }
+                    else
+                    {
+                        return; 
+                    }
                 }
 
                 var newProduct = (code: productCode, name: productName, amount: productAmount, price: productPrice);
                 productList.Add(newProduct);
+            }
+            catch (Exception err){
+                Console.WriteLine($"Erro: {err.Message}");
+            }
+        }
+
+        public void addProductAmount(){
+            string divLine = "-----------------------------------------------------------------------------------------------------";
+            foreach(var product in productList){
+                Console.WriteLine(divLine);
+                Console.WriteLine($"Nome: {product.name}\nPreço: R${product.price}\nQuantidade: {product.amount}\nCódigo: {product.code}");
+                Console.WriteLine(divLine);
+            }
+            try {
+                int? inputProductCode = GetValidatedIntInput("Qual produto você deseja atualizar a quantidade? Digite o código:");
+                
+                var filteredProduct = productList.SingleOrDefault(product => product.code == inputProductCode);
+                if(filteredProduct.code == null){
+                    throw new ("O código informado não consta na base de dados dos produtos.");
+                }
+
+                int productAmount = GetValidatedIntInput("Qual a quantidade deseja adicionar?");
+                int index = productList.IndexOf(filteredProduct);
+             
+                var updatedProduct = (filteredProduct.code, filteredProduct.name, filteredProduct.amount + productAmount, filteredProduct.price);
+                productList[index] = updatedProduct;
+
+                Console.WriteLine(divLine);
+                Console.WriteLine($"Nome: {productList[index].name}\nPreço: R${productList[index].price}\nQuantidade: {productList[index].amount}\nCódigo: {productList[index].code}");
+                Console.WriteLine(divLine);
+                Console.WriteLine("Quantidade do produto atualizada!");
+
             }catch(Exception err){
                 Console.WriteLine($"Erro: {err.Message}");
             }
         }
 
         public void consultProductByCode() {
-            int? productCode = null;
+            string divLine = "-----------------------------------------------------------------------------------------------------";
             try {
-                Console.WriteLine("Digite o código do produto que deseja consultar:");
-                string? inputProductCode = Console.ReadLine();
-                if(int.TryParse(inputProductCode, out int code)){
-                    productCode = code;
-                } else {
-                    throw new Exception("Entrada inválida para código do produto. Deve ser uma entrada válida.");
+                int? productCode = GetValidatedIntInput("Qual produto você deseja atualizar a quantidade? Digite o código:");
+
+                var filteredProduct = productList.SingleOrDefault(product => product.code == productCode);
+                if(filteredProduct.code == null){
+                    throw new Exception("O código informado não consta na base de dados dos produtos.");
                 }
-                var filteredProduct = productList.SingleOrDefault(product => product.code == code);
-
+                Console.WriteLine(divLine);
                 Console.WriteLine($"Nome: {filteredProduct.name}\nPreço: R${filteredProduct.price}\nQuantidade: {filteredProduct.amount}\nCódigo: {filteredProduct.code}");
-
+                Console.WriteLine(divLine);
             }catch(Exception err){
-                Console.WriteLine($"Error: {err.Message}");
+                Console.WriteLine($"Erro: {err.Message}");
             }
         }
+
+        private float GetValidatedFloatInput(string message){
+            while (true)
+            {
+                Console.WriteLine(message);
+                string? input = Console.ReadLine();
+
+                if (float.TryParse(input, out float result)){
+                    return result;
+                }
+                Console.WriteLine("Entrada inválida para preço. Deve ser um número válido.");
+            }
+        }
+
+        private int GetValidatedIntInput(string message){
+            while (true){
+                Console.WriteLine(message);
+                string? input = Console.ReadLine();
+
+                if (int.TryParse(input, out int result)){
+                    return result;
+                }
+
+                Console.WriteLine("Entrada inválida. Deve ser um número válido.");
+            }
+        }
+
+        private bool ProductCodeExists(int code){
+            return productList.Any(product => product.code == code);
+        } 
+       
     }
 }
