@@ -20,21 +20,10 @@ namespace ProductManagerNamespace
 
                 int productCode = GetValidatedIntInput("Digite o código do produto:");
 
-                if (ProductCodeExists(productCode))
-                {
-                    Console.WriteLine("Já há um produto cadastrado com o mesmo código na base de dados.");
-                    Console.WriteLine("Deseja cadastrar um outro código? (s/n)");
+                bool productExists = ProductCodeExists(productCode);
 
-                    string? option = Console.ReadLine();
-
-                    if (option == "s")
-                    {
-                        productCode = GetValidatedIntInput("Digite o novo código:");
-                    }
-                    else
-                    {
-                        return; 
-                    }
+                if(productExists){
+                  throw new("Ja há um produto cadastrado com este código. Cadastre o produto com um código válido");
                 }
 
                 var newProduct = (code: productCode, name: productName, amount: productAmount, price: productPrice);
@@ -52,6 +41,7 @@ namespace ProductManagerNamespace
                 Console.WriteLine($"Nome: {product.name}\nPreço: R${product.price}\nQuantidade: {product.amount}\nCódigo: {product.code}");
                 Console.WriteLine(divLine);
             }
+
             try {
                 int? inputProductCode = GetValidatedIntInput("Qual produto você deseja atualizar a quantidade? Digite o código:");
                 
@@ -64,6 +54,41 @@ namespace ProductManagerNamespace
                 int index = productList.IndexOf(filteredProduct);
              
                 var updatedProduct = (filteredProduct.code, filteredProduct.name, filteredProduct.amount + productAmount, filteredProduct.price);
+                productList[index] = updatedProduct;
+
+                Console.WriteLine(divLine);
+                Console.WriteLine($"Nome: {productList[index].name}\nPreço: R${productList[index].price}\nQuantidade: {productList[index].amount}\nCódigo: {productList[index].code}");
+                Console.WriteLine(divLine);
+                Console.WriteLine("Quantidade do produto atualizada!");
+
+            }catch(Exception err){
+                Console.WriteLine($"Erro: {err.Message}");
+            }
+        }
+
+        public void decreaseProductAmount (){
+            string divLine = "-----------------------------------------------------------------------------------------------------";
+            foreach(var product in productList){
+                Console.WriteLine(divLine);
+                Console.WriteLine($"Nome: {product.name}\nPreço: R${product.price}\nQuantidade: {product.amount}\nCódigo: {product.code}");
+                Console.WriteLine(divLine);
+            }
+
+            try {
+                int? inputProductCode = GetValidatedIntInput("Qual produto você deseja atualizar a quantidade? Digite o código:");
+                
+                var filteredProduct = productList.SingleOrDefault(product => product.code == inputProductCode);
+                if(filteredProduct.code == null){
+                    throw new ("O código informado não consta na base de dados dos produtos.");
+                }
+
+                int productAmount = GetValidatedIntInput("Qual a quantidade deseja retirar?");
+                int index = productList.IndexOf(filteredProduct);
+                if(productList[index].amount < productAmount){
+                    Console.WriteLine("A quantidade de estoque do produto é menor do que a quantidade que se deseja diminuir.");
+                    return;
+                }
+                var updatedProduct = (filteredProduct.code, filteredProduct.name, filteredProduct.amount - productAmount, filteredProduct.price);
                 productList[index] = updatedProduct;
 
                 Console.WriteLine(divLine);
@@ -93,6 +118,10 @@ namespace ProductManagerNamespace
             }
         }
 
+        public void generateReport(){
+            
+        }
+
         private float GetValidatedFloatInput(string message){
             while (true)
             {
@@ -102,7 +131,7 @@ namespace ProductManagerNamespace
                 if (float.TryParse(input, out float result)){
                     return result;
                 }
-                Console.WriteLine("Entrada inválida para preço. Deve ser um número válido.");
+                throw new("Entrada inválida para preço. Deve ser um número válido.");
             }
         }
 
@@ -115,13 +144,12 @@ namespace ProductManagerNamespace
                     return result;
                 }
 
-                Console.WriteLine("Entrada inválida. Deve ser um número válido.");
+                throw new("Entrada inválida. Deve ser um número válido.");
             }
         }
 
         private bool ProductCodeExists(int code){
             return productList.Any(product => product.code == code);
-        } 
-       
+        }        
     }
 }

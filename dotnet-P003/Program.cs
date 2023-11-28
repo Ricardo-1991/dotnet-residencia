@@ -32,11 +32,11 @@ namespace Program
                         productManager.addProductAmount();
                         break;
                     case "4":
-                        
+                        productManager.decreaseProductAmount();
                         break;
 
                     case "5":
-                        
+                        productManager.generateReport();
                         break;
                     default:
                         Console.WriteLine("Opção inválida.");
