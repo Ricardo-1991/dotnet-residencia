@@ -35,6 +35,10 @@ namespace ProductManagerNamespace
         }
 
         public void addProductAmount(){
+             if(isListEmpty()){
+                Console.WriteLine("Não há produto cadastrado para adicionar a quantidade.");
+                return;
+            }
             string divLine = "-----------------------------------------------------------------------------------------------------";
             foreach(var product in productList){
                 Console.WriteLine(divLine);
@@ -67,6 +71,10 @@ namespace ProductManagerNamespace
         }
 
         public void decreaseProductAmount (){
+             if(isListEmpty()){
+                Console.WriteLine("Não há produto cadastrado para diminuir a quantidade.");
+                return;
+            }
             string divLine = "-----------------------------------------------------------------------------------------------------";
             foreach(var product in productList){
                 Console.WriteLine(divLine);
@@ -102,6 +110,10 @@ namespace ProductManagerNamespace
         }
 
         public void consultProductByCode() {
+             if(isListEmpty()){
+                Console.WriteLine("Não há produto cadastrado para ser consultado.");
+                return;
+            }
             string divLine = "-----------------------------------------------------------------------------------------------------";
             try {
                 int? productCode = GetValidatedIntInput("Qual produto você deseja atualizar a quantidade? Digite o código:");
@@ -119,9 +131,78 @@ namespace ProductManagerNamespace
         }
 
         public void generateReport(){
+            if(isListEmpty()){
+                Console.WriteLine("Não há produto cadastrado para gerar relatório.");
+                return;
+            }
+            string ? option;
+            string divLine = "-------------------------------------------------------------------------------------";
+            do {
+                Console.WriteLine("Menu de relatórios");
+                Console.WriteLine(divLine);
+                Console.WriteLine("1 - Lista de produtos com quantidade baixo do informado.");
+                Console.WriteLine("2 - Lista de produtos entre dois valores informados.");
+                Console.WriteLine("3 - Valor total do estoque e valor total de cada produto de acordo com o estoque.");
+                Console.WriteLine("4 - Retornar para o menu principal");
+                Console.WriteLine(divLine);
+                Console.WriteLine();
+
+                Console.WriteLine("Escolha uma opção no menu de relatórios");
+                option = Console.ReadLine();
+        
+                switch (option){
+                    case "1":
+                        int? amount = GetValidatedIntInput("Digite a quantidade:");
+                        var filteredListAmount = productList.Where(product => product.amount < amount).ToList();
+                        foreach(var product in filteredListAmount){
+                            Console.WriteLine(divLine);
+                            Console.WriteLine($"Nome: {product.name}\nPreço: R${product.price}\nQuantidade: {product.amount}\nCódigo: {product.code}");
+                            Console.WriteLine(divLine);
+                        }
+                    break;
+
+                    case "2":
+                        float? firstValue = GetValidatedFloatInput("Digite o primeiro valor:"); 
+                        float? secondValue = GetValidatedFloatInput("Digite o segundo valor:"); 
+                        if(firstValue < secondValue){
+                            (firstValue, secondValue) = (secondValue, firstValue);
+                        }
+                        var filteredListValues = productList.Where(product => (product.price < firstValue && product.price > secondValue));
+                         foreach(var product in filteredListValues){
+                            Console.WriteLine(divLine);
+                            Console.WriteLine($"Nome: {product.name}\nPreço: R${product.price}\nQuantidade: {product.amount}\nCódigo: {product.code}");
+                            Console.WriteLine(divLine);
+                        }
+                    break;
+
+                    case "3":
+                        float? total = productList.Select(product => product.amount * product.price).Sum();
+                        Console.WriteLine($"Valor total do estoque: {total}");
+                        Console.WriteLine(divLine);
+                        Console.WriteLine("Valor total de cada produto de acordo com seu estoque");
+                        foreach(var product in productList){
+                                Console.WriteLine($"Produto: {product.name}");
+                                Console.WriteLine($"Valor total: {product.amount * product.price}");
+                            } 
+                    break;
+
+                    case "4":
+                        return;
+                    default:
+                        Console.WriteLine("Opção inválida.");
+                    break;
+                }
+
+            }while(option != "4");
             
         }
 
+        private bool isListEmpty(){
+            if(productList.Count == 0){
+                return true;
+            }
+            return false;
+        }
         private float GetValidatedFloatInput(string message){
             while (true)
             {
