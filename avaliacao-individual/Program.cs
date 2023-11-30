@@ -19,13 +19,17 @@ advogado1.Cpf = "18523697415";
 advogado2.Cpf = "76637192725";
 advogado3.Cpf = "96565738291";
 
-cliente1.Cpf = "24545626271";
+cliente1.Cpf = "24545626272";
 cliente2.Cpf = "24545626271";
 cliente3.Cpf = "65534275934";
 
 addPeople.addCliente(cliente1);
 addPeople.addCliente(cliente2);
 addPeople.addCliente(cliente3);
+
+addPeople.addAdvogado(advogado1);
+addPeople.addAdvogado(advogado2);
+addPeople.addAdvogado(advogado3);
 
 
 ListAndReports.reports();

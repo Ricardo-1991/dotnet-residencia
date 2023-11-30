@@ -21,7 +21,7 @@ namespace namespaceAddPeople
         }  
         
          public static void addAdvogado(Advogado _advogado){
-            bool isUniqueCpf = colecaoCliente.Any(x => x.Cpf == _advogado.Cpf);
+            bool isUniqueCpf = colecaoAdvogado.Any(x => x.Cpf == _advogado.Cpf);
             bool isUniqueCNA = colecaoAdvogado.Any(x => x.Cna == _advogado.Cpf);
             if(isUniqueCpf){
                 Console.WriteLine("Já há um cliente com este CPF no sistema");

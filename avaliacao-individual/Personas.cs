@@ -54,6 +54,9 @@ namespace Personas
         public string? estadoCivil;
         public string? profissao;
 
-        public Cliente(string _nome, DateTime _dataNascimento, string estadoCivil, string profissao) :base(_nome, _dataNascimento){}
+        public Cliente(string _nome, DateTime _dataNascimento, string _estadoCivil, string _profissao) :base(_nome, _dataNascimento){
+            estadoCivil = _estadoCivil;
+            profissao = _profissao;
+        }
     }
 }
