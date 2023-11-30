@@ -1,0 +1,15 @@
+/home/ricardo/Documentos/dotnet-residencia/semana-4/bin/Debug/net8.0/semana-4
+/home/ricardo/Documentos/dotnet-residencia/semana-4/bin/Debug/net8.0/semana-4.deps.json
+/home/ricardo/Documentos/dotnet-residencia/semana-4/bin/Debug/net8.0/semana-4.runtimeconfig.json
+/home/ricardo/Documentos/dotnet-residencia/semana-4/bin/Debug/net8.0/semana-4.dll
+/home/ricardo/Documentos/dotnet-residencia/semana-4/bin/Debug/net8.0/semana-4.pdb
+/home/ricardo/Documentos/dotnet-residencia/semana-4/obj/Debug/net8.0/semana-4.GeneratedMSBuildEditorConfig.editorconfig
+/home/ricardo/Documentos/dotnet-residencia/semana-4/obj/Debug/net8.0/semana-4.AssemblyInfoInputs.cache
+/home/ricardo/Documentos/dotnet-residencia/semana-4/obj/Debug/net8.0/semana-4.AssemblyInfo.cs
+/home/ricardo/Documentos/dotnet-residencia/semana-4/obj/Debug/net8.0/semana-4.csproj.CoreCompileInputs.cache
+/home/ricardo/Documentos/dotnet-residencia/semana-4/obj/Debug/net8.0/semana-4.sourcelink.json
+/home/ricardo/Documentos/dotnet-residencia/semana-4/obj/Debug/net8.0/semana-4.dll
+/home/ricardo/Documentos/dotnet-residencia/semana-4/obj/Debug/net8.0/refint/semana-4.dll
+/home/ricardo/Documentos/dotnet-residencia/semana-4/obj/Debug/net8.0/semana-4.pdb
+/home/ricardo/Documentos/dotnet-residencia/semana-4/obj/Debug/net8.0/semana-4.genruntimeconfig.cache
+/home/ricardo/Documentos/dotnet-residencia/semana-4/obj/Debug/net8.0/ref/semana-4.dll
