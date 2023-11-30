@@ -12,14 +12,14 @@ advogado1.Cna = "852";
 advogado2.Cna = "741";
 advogado3.Cna = "321";
 
-advogado1.Cpf = "8523697415";
-advogado2.Cpf = "7663719272";
-advogado3.Cpf = "6565738291";
+advogado1.Cpf = "18523697415";
+advogado2.Cpf = "76637192725";
+advogado3.Cpf = "96565738291";
 
-cliente1.Cpf = "4545626271";
-cliente2.Cpf = "8787969409";
-cliente3.Cpf = "6553427593";
+cliente1.Cpf = "24545626271";
+cliente2.Cpf = "88787969409";
+cliente3.Cpf = "65534275934";
 
-
+Console.WriteLine(cliente1.Cpf);
 
 

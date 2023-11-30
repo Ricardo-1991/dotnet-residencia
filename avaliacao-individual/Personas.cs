@@ -20,9 +20,18 @@ namespace Personas
             get{return _cpf;}
             set{
                 try{
-                    string padraoRegex = @"^\d{1,11}$";
-                    Regex regex = new Regex(padraoRegex);
-                    Console.WriteLine(regex);
+                    if (string.IsNullOrEmpty(value)){
+                        _cpf = null;
+                        return;
+                    }
+                    string cpfNumerico = Regex.Replace(value, @"[^\d]", "");
+
+                    if (cpfNumerico.Length == 11){
+                        _cpf = cpfNumerico;
+                    }
+                    else{
+                        throw new ArgumentException("O CPF deve ter exatamente 11 dígitos.");
+                    }
                 }catch (Exception err){
                     Console.WriteLine($"Erro: {err.Message}");
                 }

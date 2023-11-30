@@ -1,0 +1,15 @@
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/bin/Debug/net8.0/avaliacao-individual
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/bin/Debug/net8.0/avaliacao-individual.deps.json
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/bin/Debug/net8.0/avaliacao-individual.runtimeconfig.json
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/bin/Debug/net8.0/avaliacao-individual.dll
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/bin/Debug/net8.0/avaliacao-individual.pdb
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/obj/Debug/net8.0/avaliacao-individual.GeneratedMSBuildEditorConfig.editorconfig
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/obj/Debug/net8.0/avaliacao-individual.AssemblyInfoInputs.cache
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/obj/Debug/net8.0/avaliacao-individual.AssemblyInfo.cs
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/obj/Debug/net8.0/avaliacao-individual.csproj.CoreCompileInputs.cache
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/obj/Debug/net8.0/avaliacao-individual.sourcelink.json
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/obj/Debug/net8.0/avaliacao-individual.dll
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/obj/Debug/net8.0/refint/avaliacao-individual.dll
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/obj/Debug/net8.0/avaliacao-individual.pdb
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/obj/Debug/net8.0/avaliacao-individual.genruntimeconfig.cache
+/home/ricardo/Documentos/dotnet-residencia/avaliacao-individual/obj/Debug/net8.0/ref/avaliacao-individual.dll
