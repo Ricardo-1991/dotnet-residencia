@@ -22,6 +22,7 @@ cliente1.Cpf = "24545626271";
 cliente2.Cpf = "88787969409";
 cliente3.Cpf = "65534275934";
 
+
 ListAndReports.colecaoAdvogado.AddRange(new List<Advogado>{
     advogado1,
     advogado2,
@@ -36,3 +37,5 @@ ListAndReports.colecaoCliente.AddRange(new List<Cliente>{
 });
 
 ListAndReports.reports();
+
+ListAndReports.getValidated();
