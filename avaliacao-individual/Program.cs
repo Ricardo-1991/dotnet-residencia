@@ -1,5 +1,7 @@
 ﻿using Advogado = Personas.Advogado;
 using Cliente = Personas.Cliente;
+using ListAndReports = Reports.ListAndReports;
+
 
 Advogado advogado1 = new Advogado("Dorea", new DateTime(1989, 7, 24));
 Advogado advogado2 = new Advogado("Alexandre", new DateTime(2000, 8, 30));
@@ -20,6 +22,17 @@ cliente1.Cpf = "24545626271";
 cliente2.Cpf = "88787969409";
 cliente3.Cpf = "65534275934";
 
-Console.WriteLine(cliente1.Cpf);
+ListAndReports.colecaoAdvogado.AddRange(new List<Advogado>{
+    advogado1,
+    advogado2,
+    advogado3
+});
 
 
+ListAndReports.colecaoCliente.AddRange(new List<Cliente>{
+    cliente1,
+    cliente2,
+    cliente3
+});
+
+ListAndReports.reports();
